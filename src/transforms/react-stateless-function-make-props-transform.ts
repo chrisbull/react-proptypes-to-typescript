@@ -1,6 +1,5 @@
-import * as ts from 'typescript';
 import * as _ from 'lodash';
-
+import * as ts from 'typescript';
 import * as helpers from '../helpers';
 
 export type Factory = ts.TransformerFactory<ts.SourceFile>;
@@ -87,7 +86,7 @@ function visitReactStatelessComponent(
     const propTypeDeclaration = ts.createTypeAliasDeclaration([], [], propTypeName, [], propType);
     const propTypeRef = ts.createTypeReferenceNode(propTypeName, []);
 
-    let componentType = ts.createTypeReferenceNode(ts.createQualifiedName(ts.createIdentifier('React'), 'SFC'), [
+    let componentType = ts.createTypeReferenceNode(ts.createQualifiedName(ts.createIdentifier('React'), 'FC'), [
         shouldMakePropTypeDeclaration ? propTypeRef : propType,
     ]);
 
